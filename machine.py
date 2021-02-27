@@ -59,7 +59,6 @@ def searchEngine(engine,keyword):
     switcher = {
         "google" : f"https://www.google.com/search?q={keyword}",
         "bing" : "https://www.bing.com/",
-        "youtube" : "https://www.youtube.com/",
     }
     return switcher.get(engine)
 
@@ -121,4 +120,8 @@ def nextVideo(driver):
     return
 
 def faker(driver):
-    
+    # watch random video for 10s
+
+    # search random keyword from keyword list in youtube
+
+    pass
