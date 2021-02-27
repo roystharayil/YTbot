@@ -63,5 +63,15 @@ def searchEngine(engine,keyword):
     }
     return switcher.get(engine)
 
-def getVideoLink(keyword):
+def getVideoLink(driver,keyword):
+    """To get the youtube link for the video
+
+    Args:
+        driver ([type]): selenium webdriver
+        keyword (string): partial search keyword
+
+    Returns:
+        [type]: [description]
+    """    
     v1 = driver.find_element_by_partial_link_text(keyword) 
+    return v1.get_attribute('href')

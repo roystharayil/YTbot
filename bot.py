@@ -15,7 +15,8 @@ for key in users:
     try:
         v1 = driver.find_element_by_link_text('Videos')
         v1.click()
-        
+        time.sleep(3)
+        machine.getVideoLink()
     except NoSuchElementException:
         v2 = driver.find_element_by_link_text('VIDEOS')
         v2.click()
