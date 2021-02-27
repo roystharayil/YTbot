@@ -75,3 +75,50 @@ def getVideoLink(driver,keyword):
     """    
     v1 = driver.find_element_by_partial_link_text(keyword) 
     return v1.get_attribute('href')
+
+
+def likes(driver):
+    xpath = '//*[@id="top-level-buttons"]/ytd-toggle-button-renderer[1]'
+    like = driver.find_element_by_xpath(xpath)
+    like.click()
+    return
+
+def dislikes(driver):
+    xpath = '//*[@id="top-level-buttons"]/ytd-toggle-button-renderer[2]'
+    like = driver.find_element_by_xpath(xpath)
+    like.click()
+    return
+
+def subscribe(driver):
+    subscribe = driver.find_element_by_id('subscribe-button')
+    subscribe.click()
+    return
+
+def getChannelInfo(driver) -> Dict:
+    """ To get channel information
+
+
+    Args:
+        driver ([type]): selenium webdriver
+
+    Returns:
+        Dict: channel name, link, number of subscribers
+    """    
+    channel_info = {}
+    xpath = '//*[@id="text"]/a'
+    channel = driver.find_element_by_xpath(xpath)
+    link = channel.get_attribute('href')
+    name = channel.text()
+    subscribers = driver.find_element_by_xpath('//*[@id="owner-sub-count"]')
+    channel_info['name'] = name
+    channel_info['link'] = link
+    channel_info['subscribers'] = subscribers
+    return channel_info
+
+def nextVideo(driver):
+    next_video = driver.find_element_by_xpath('//*[@id="contents"]/ytd-compact-video-renderer[1]')
+    next_video.click()
+    return
+
+def faker(driver):
+    
