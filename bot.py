@@ -1,8 +1,12 @@
 import machine
 import time
 from selenium.common.exceptions import NoSuchElementException
+from proxy import get_proxies
 
-driver = machine.browser()
+proxies = get_proxies()
+for proxy in proxies:
+    driver = machine.browser(proxy)
+
 users = machine.getUsers('info/email.txt')
 
 for key in users:

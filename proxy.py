@@ -2,6 +2,11 @@ from lxml.html import fromstring
 import requests
 
 def get_proxies():
+    """to get free proxies from web
+
+    Returns:
+        [set]: A set of free proxies
+    """    
     url = 'https://free-proxy-list.net/'
     response = requests.get(url)
     parser = fromstring(response.text)
@@ -11,8 +16,3 @@ def get_proxies():
             proxy = ":".join([i.xpath('.//td[1]/text()')[0], i.xpath('.//td[2]/text()')[0]])
             proxies.add(proxy)
     return proxies
-
-# proxies = get_proxies()
-# proxy_pool = cycle(proxies)
-
-# print (next(proxy_pool))

@@ -3,7 +3,7 @@ from selenium.webdriver.common.keys import Keys
 from typing import Dict
 import time
 
-def browser():
+def browser(proxy):
     PATH = "C:\\Users\\DELL\\Documents\\Quant\\Libraries\\chromedriver\\chromedriver.exe"
     USER = "user-data-dir=C:\\Users\\DELL\\AppData\\Local\\Google\\Chrome\\User Data"
     chrome_options = webdriver.ChromeOptions()
