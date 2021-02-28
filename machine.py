@@ -116,12 +116,23 @@ def getChannelInfo(driver) -> Dict:
 
 def nextVideo(driver):
     next_video = driver.find_element_by_xpath('//*[@id="contents"]/ytd-compact-video-renderer[1]')
-    next_video.click()
+    # next_video.click()
+    return next_video
+
+def watchVideo(time,element):
+    """ To open a video and watch for particular time
+
+    Args:
+        time (int): time to watch
+        element (web element): selenium web element
+    """    
+    element.click()
+    time.sleep(time)
     return
 
 def faker(driver):
     # watch random video for 10s
-
+    watchVideo()
     # search random keyword from keyword list in youtube
 
     pass
